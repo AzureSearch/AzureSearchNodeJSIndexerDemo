@@ -3,7 +3,7 @@ var SearchResults = require('./SearchResults');
 var request = require('request');
 var Q = require('q');
 
-var Sherlock = React.createClass({
+var SearchUI = React.createClass({
     getInitialState: function(){
         return {
             results: []
@@ -25,7 +25,7 @@ var Sherlock = React.createClass({
         this.props.index +
         "/docs?search=" +
         encodeURIComponent(this.refs.searchText.getDOMNode().value) + 
-        "&api-version=2014-07-31-Preview"
+        "&api-version=2015-02-28"
         var headers = {'api-key': this.props.apikey};
         var options = {
             url: url,
