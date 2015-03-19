@@ -42,7 +42,6 @@ var SearchUI = React.createClass({
     },
     processResults: function(error, response, body){
         var data = JSON.parse(body).value
-        console.info(data);
         this.setState({results: data});
     },
     render: function() {
