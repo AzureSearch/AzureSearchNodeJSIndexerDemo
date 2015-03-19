@@ -42,6 +42,7 @@ var SearchUI = React.createClass({
     },
     processResults: function(error, response, body){
         var data = JSON.parse(body).value
+        console.info(data);
         this.setState({results: data});
     },
     render: function() {
@@ -49,7 +50,6 @@ var SearchUI = React.createClass({
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8 col-md-offset-2">
                     <div className="input-group">
                         <input type="text" className="form-control" ref="searchText" onKeyDown={this.handleKeyDown}/>  
                         <span className="input-group-btn">
@@ -57,7 +57,6 @@ var SearchUI = React.createClass({
                         </span>
                     </div>
                     <SearchResults results={this.state.results}/>
-                    </div>
                 </div>
             </div>
             )
