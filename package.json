@@ -1,5 +1,5 @@
 {
-  "name": "Sherlock",
+  "name": "AzureSearchIndexerDemo",
   "version": "0.0.1",
   "description": "Plug & play search UX built React for Azure Search",
   "main": "js/UI/app.js",
