@@ -4,11 +4,11 @@ config.apiKey = "";
 
 config.serviceURL = "https://yourServiceHere.search.windows.net";
 
-config.dataSourceName = "evboyle-usgs-datasource";
+config.dataSourceName = "usgs-datasource";
 
-config.indexerName ="evboyle-usgs-indexer"
+config.indexerName ="usgs-indexer"
 
-config.indexName = "evboyletest";
+config.indexName = "usgsindex";
 
 config.apiVersion = "2015-02-28";
 

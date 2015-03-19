@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "npm run watch & npm run start_server",
+    "indexDocuments": "node ./js/DataIndexer/DataIndexer.js",
     "watch": "watchify -o js/UI/bundle.js -v -d .",
     "start_server": "http-server",
     "build": "browserify . > js/UI/bundle.min.js"
