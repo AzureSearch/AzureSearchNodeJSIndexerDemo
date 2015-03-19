@@ -1,0 +1,5 @@
+#node packages
+node_modules
+
+#bundles from build builds
+js/UI/bundle.*
