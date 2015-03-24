@@ -4,8 +4,8 @@ var Payloads = require('./Payloads');
 var Q = require('q');
 
 var deleteIndex = function(){
-	var deferred = Q.defer();
-	var url = config.serviceURL +
+    var deferred = Q.defer();
+    var url = config.serviceURL +
         "/indexes/" + 
         config.indexName +
         "?api-version=" + config.apiVersion;
@@ -30,9 +30,9 @@ var deleteIndex = function(){
 };
 
 var deleteDataSource = function(){
-	// cleanup after previous runs
-	var deferred = Q.defer();
-	var url = config.serviceURL +
+    // cleanup after previous runs
+    var deferred = Q.defer();
+    var url = config.serviceURL +
         "/datasources/" + 
         config.dataSourceName +
         "?api-version=" + config.apiVersion;
@@ -58,9 +58,9 @@ var deleteDataSource = function(){
 };
 
 var deleteIndexer = function(){
-	// cleanup after previous runs
-	var deferred = Q.defer();
-	var url = config.serviceURL +
+    // cleanup after previous runs
+    var deferred = Q.defer();
+    var url = config.serviceURL +
         "/indexers/" + 
         config.indexerName +
         "?api-version=" + 
@@ -87,9 +87,9 @@ var deleteIndexer = function(){
 };
 
 var createIndex = function(){
-	var deferred = Q.defer();
+    var deferred = Q.defer();
 
-	var url = config.serviceURL +
+    var url = config.serviceURL +
         "/indexes/" + 
         config.indexName +
         "?api-version=" + 
@@ -116,9 +116,9 @@ var createIndex = function(){
 }
 
 var createDataSource = function(){
-	var deferred = Q.defer();
+    var deferred = Q.defer();
 
-	var url = config.serviceURL +
+    var url = config.serviceURL +
         "/datasources/" + 
         config.dataSourceName +
         "?api-version=" + 
@@ -145,9 +145,9 @@ var createDataSource = function(){
 };
 
 var createIndexer = function(){
-	var deferred = Q.defer();
+    var deferred = Q.defer();
 
-	var url = config.serviceURL +
+    var url = config.serviceURL +
         "/indexers/" + 
         config.indexerName +
         "?api-version=" + 
@@ -174,9 +174,9 @@ var createIndexer = function(){
 };
 
 var runIndexer = function(){
-	var deferred = Q.defer();
+    var deferred = Q.defer();
 
-	var url = config.serviceURL +
+    var url = config.serviceURL +
         "/indexers/" + 
         config.indexerName +
         "/run?api-version=" + 
@@ -202,9 +202,9 @@ var runIndexer = function(){
 };
 
 var indexerStatus = function(){
-	var deferred = Q.defer();
+    var deferred = Q.defer();
 
-	var url = config.serviceURL +
+    var url = config.serviceURL +
         "/indexers/" + 
         config.indexerName +
         "/status?api-version=" + 
@@ -222,29 +222,29 @@ var indexerStatus = function(){
     };
         
     
-	var indexerStatus = setInterval(function(){
-		request.get(options, function(error, response, body){
-			var result = JSON.parse(body);
+    var indexerStatus = setInterval(function(){
+        request.get(options, function(error, response, body){
+            var result = JSON.parse(body);
 
-			var processed = result.lastResult ? result.lastResult.itemsProcessed: 0;
-			var status = result.lastResult ? result.lastResult.status: "inProgress";
+            var processed = result.lastResult ? result.lastResult.itemsProcessed: 0;
+            var status = result.lastResult ? result.lastResult.status: "inProgress";
 
-			console.info(status + ", items processed: " + processed);
+            console.info(status + ", items processed: " + processed);
 			
-			if(status !== "inProgress"){
-				clearInterval(indexerStatus);
-				deferred.resolve(indexerStatus);
-			}
-		});
-	}, 1000);
+            if(status !== "inProgress"){
+                clearInterval(indexerStatus);
+                deferred.resolve(indexerStatus);
+            }
+        });
+    }, 1000);
     return deferred.promise;
 }
 
 deleteIndexer()
-	.then(deleteDataSource)
-	.then(deleteIndex)
-	.then(createIndex)
-	.then(createDataSource)
-	.then(createIndexer)
-	.then(runIndexer)
-	.then(indexerStatus);
+    .then(deleteDataSource)
+    .then(deleteIndex)
+    .then(createIndex)
+    .then(createDataSource)
+    .then(createIndexer)
+    .then(runIndexer)
+    .then(indexerStatus);
