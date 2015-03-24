@@ -1,5 +1,6 @@
 var request = require('request');
 var config = require('../../config');
+var Payloads = require('./Payloads');
 var Q = require('q');
 
 var deleteIndex = function(){
@@ -10,8 +11,8 @@ var deleteIndex = function(){
         "?api-version=" + config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+    	'api-key': config.apiKey,
+    	'Content-Type': 'application/json'
     };
 
     var options = {
@@ -37,8 +38,8 @@ var deleteDataSource = function(){
         "?api-version=" + config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
@@ -62,11 +63,12 @@ var deleteIndexer = function(){
 	var url = config.serviceURL +
         "/indexers/" + 
         config.indexerName +
-        "?api-version=" + config.apiVersion;
+        "?api-version=" + 
+        config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
@@ -90,17 +92,18 @@ var createIndex = function(){
 	var url = config.serviceURL +
         "/indexes/" + 
         config.indexName +
-        "?api-version=" + config.apiVersion;
+        "?api-version=" + 
+        config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
         url: url,
         headers: headers,
-        body: JSON.stringify(config.indexPayload),
+        body: JSON.stringify(Payloads.indexPayload),
         withCredentials: false
     };
         
@@ -122,14 +125,14 @@ var createDataSource = function(){
         config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'	
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
         url: url,
         headers: headers,
-        body: JSON.stringify(config.dataSourcePayload),
+        body: JSON.stringify(Payloads.dataSourcePayload),
         withCredentials: false
     };
         
@@ -151,14 +154,14 @@ var createIndexer = function(){
         config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
         url: url,
         headers: headers,
-        body: JSON.stringify(config.indexerPayload),
+        body: JSON.stringify(Payloads.indexerPayload),
         withCredentials: false
     };
         
@@ -174,14 +177,14 @@ var runIndexer = function(){
 	var deferred = Q.defer();
 
 	var url = config.serviceURL +
-    "/indexers/" + 
-    config.indexerName +
-    "/run?api-version=" + 
-    config.apiVersion;
+        "/indexers/" + 
+        config.indexerName +
+        "/run?api-version=" + 
+        config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
@@ -192,9 +195,6 @@ var runIndexer = function(){
         
     request.post(options, function(error, response, body){
     	console.info("run indexer result: " + response.statusCode);
-    	var indexerStatus = setInterval(function(){
-
-    	}, 1000);
     	deferred.resolve();
     });
 
@@ -205,14 +205,14 @@ var indexerStatus = function(){
 	var deferred = Q.defer();
 
 	var url = config.serviceURL +
-    "/indexers/" + 
-    config.indexerName +
-    "/status?api-version=" + 
-    config.apiVersion;
+        "/indexers/" + 
+        config.indexerName +
+        "/status?api-version=" + 
+        config.apiVersion;
 
     var headers = {
-        	'api-key': config.apiKey,
-        	 'Content-Type': 'application/json'
+        'api-key': config.apiKey,
+        'Content-Type': 'application/json'
     };
 
     var options = {
@@ -247,7 +247,4 @@ deleteIndexer()
 	.then(createDataSource)
 	.then(createIndexer)
 	.then(runIndexer)
-	.then(indexerStatus)
-	.then(function(){
-		process.exit();
-});
+	.then(indexerStatus);

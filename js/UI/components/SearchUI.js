@@ -9,24 +9,17 @@ var SearchUI = React.createClass({
             results: []
         }
     },
-    dummySearch: function(){
-        console.info("search");
-        this.setState({results: [
-            "abc",
-            "def",
-            "hij",
-            "klmnop"
-            ]});
-    },
     search: function(){
 
         var url = this.props.url +
-        "/indexes/" + 
-        this.props.index +
-        "/docs?search=" +
-        encodeURIComponent(this.refs.searchText.getDOMNode().value) + 
-        "&api-version=2015-02-28"
+            "/indexes/" + 
+            this.props.index +
+            "/docs?search=" +
+            encodeURIComponent(this.refs.searchText.getDOMNode().value) + 
+            "&api-version=2015-02-28";
+
         var headers = {'api-key': this.props.apikey};
+
         var options = {
             url: url,
             headers: headers,

@@ -3,3 +3,6 @@ node_modules
 
 #bundles from build builds
 js/UI/bundle.*
+
+#log files
+*.log
