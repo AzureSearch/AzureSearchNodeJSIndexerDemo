@@ -16,7 +16,7 @@ config.indexName = "features";
 
 config.apiVersion = "2015-02-28";
 
-config.connectionString = "Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=Search42;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+config.connectionString = "Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
 
 config.tableName = "GeoNamesRI";
 
