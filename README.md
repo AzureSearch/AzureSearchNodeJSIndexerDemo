@@ -4,7 +4,7 @@
   
   To get started:
   
-  1. git clone https://github.com/EvanBoyle/AzureSearchIndexerDemo.git
+  1. git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git
   2. npm install
   3. npm install -g http-server
   4. populate config.js with your search service URL & api key
