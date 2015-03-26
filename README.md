@@ -1,4 +1,4 @@
-# AzureSearchIndexerDemo
+# AzureSearchNodeJSIndexerDemo
  NodeJS program that creates an Azure Search index and automatically populates it with data from a SQL Azure instance using an indexer.
   Also comes with a simple React UI to query results.
   
