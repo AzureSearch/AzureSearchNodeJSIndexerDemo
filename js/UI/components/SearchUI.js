@@ -16,7 +16,8 @@ var SearchUI = React.createClass({
             this.props.index +
             "/docs?search=" +
             encodeURIComponent(this.refs.searchText.getDOMNode().value) + 
-            "&api-version=2015-02-28";
+            "&api-version=2015-02-28" +
+            "&searchMode=all";
 
         var headers = {'api-key': this.props.apikey};
 
