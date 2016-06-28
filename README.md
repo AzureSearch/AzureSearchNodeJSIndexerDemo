@@ -15,3 +15,7 @@
   
 Step five will run a script that creates and index, datasource, and indexer.  This indexer will scrape a 
 SQL Azure DB, provided by the Azure Search team, and automatically push all rows into your Azure Search Index.
+
+---
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
