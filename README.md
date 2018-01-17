@@ -1,6 +1,6 @@
 # AzureSearchNodeJSIndexerDemo
 
-This demo is no longer maintained at this location. For the updated contents and sample, please visit [this repository](https://github.com/Azure-Samples/AzureSearchNodeJSIndexerDemo).
+This demo is no longer maintained at this location. For the updated contents and sample, please visit [this repository](https://github.com/Azure-Samples/search-node-indexer-demo).
 
 ---
 
