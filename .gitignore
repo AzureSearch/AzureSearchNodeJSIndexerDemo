@@ -1,9 +1,0 @@
-#node packages
-node_modules
-package-lock.json
-
-#bundles from build builds
-js/UI/bundle.*
-
-#log files
-*.log
